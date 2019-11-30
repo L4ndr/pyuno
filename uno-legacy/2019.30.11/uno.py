@@ -50,8 +50,3 @@ def bloquear(nj):
         nj = 1
     else:
         nj = 0
-    return nj
-
-def inverter(jogador):
-    jogador.reverse()
-    return jogador
