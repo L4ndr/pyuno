@@ -1,6 +1,6 @@
 import random
 
-baralho = open('cartas.txt', 'r').read().split('\n').strip()
+baralho = open('cartas.txt', 'r').read().strip('\n').split('\n')
 random.shuffle(baralho)
 semcor = ['+4 preto', 'trocar cor']
 
@@ -50,3 +50,8 @@ def bloquear(nj):
         nj = 1
     else:
         nj = 0
+    return nj
+
+def inverter(jogador):
+    jogador.reverse()
+    return jogador
