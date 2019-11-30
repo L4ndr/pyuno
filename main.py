@@ -2,13 +2,13 @@ import uno
 import random
 from os import system
 
-baralho = uno.criarbaralho()
+baralho = uno.criar_baralho()
 print(len(baralho))
 cartaatual = random.choice(baralho)
 baralho.remove(cartaatual)
 # define a carta inicial
 
-jogador = uno.distribuir_cartas(2)
+jogador = uno.distribuir_cartas(4)
 # distribui as cartas aos jogadores
 
 while True:
@@ -20,6 +20,8 @@ while True:
             uno.pescar_carta(jogador[nj], 2)
         if cartaatual.startswith('+4'):
             uno.pescar_carta(jogador[nj], 4)
+            uno.trocar_cor(cartaatual)
+
         if cartaatual.startswith('inverter'):
             uno.inverter(jogador)
         
@@ -33,10 +35,9 @@ while True:
         
         
         print('mão atual: %s' % ', '.join(maoatual))
-        print('cartas utilizaveis: %s' % ', '.join(cartasutilizaveis))
-
         jogador[nj], cartaatual = uno.escolher_cartas(maoatual, cartasutilizaveis, cartaatual)
-        
+        if cartaatual == "trocar cor":
+            cartaatual = uno.trocar_cor(cartaatual)
         
         system('clear')
 

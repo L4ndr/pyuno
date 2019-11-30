@@ -2,9 +2,9 @@ import random
 
 baralho = open('cartas.txt', 'r').read().strip('\n').split('\n')
 random.shuffle(baralho)
-semcor = ['+4 preto', 'trocar cor']
+semcor = ['+4', 'trocar cor']
 
-def criarbaralho():
+def criar_baralho():
     return baralho
 
 def distribuir_cartas(numjogadores):
@@ -27,7 +27,7 @@ def cartas_utilizaveis(jogador, cartaatual):
     return utilizaveis
     
 def escolher_cartas(maoatual, utilizaveis, cartaatual):
-    print('Escolha uma carta abaixo digitando um dos números:')
+    print('Escolha uma opção abaixo digitando um dos números:')
     for i in range(len(utilizaveis)):
         print('[%s] %s' % (str(i+1), str(utilizaveis[i])))
     print('[%s] pescar carta' % str(len(utilizaveis)+1))
@@ -55,3 +55,15 @@ def bloquear(nj):
 def inverter(jogador):
     jogador.reverse()
     return jogador
+
+def trocar_cor(ca):
+    print("Escolha uma cor digitando um dos números abaixo:\n[1]Amarelo\n[2]Azul\n[3]Verde\n[4]Vermelho")
+    cor_nova = int(input(""))
+    dic = {
+        1:"amarelo",
+        2:"azul",
+        3:"verde",
+        4:"vermelho"
+    }
+    ca = ca.replace(ca.split()[1], dic[cor_nova])
+    return ca

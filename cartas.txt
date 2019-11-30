@@ -6,10 +6,10 @@
 +2 verde
 +2 vermelho
 +2 vermelho
-+4 preto
-+4 preto
-+4 preto
-+4 preto
++4
++4
++4
++4
 0 amarelo
 0 azul
 0 verde
